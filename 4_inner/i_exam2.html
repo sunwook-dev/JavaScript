@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form name="fmt">
+    <input type="text" name="display"><br>
+    <input type="button" name="start" value="시작" onclick="startClock()">
+    <input type="button" name="stop" value="종료" onclick="stopClock()">    
+  </form>
+
+  <script type="text/javascript">
+    let timeId;
+    let running = false;
+
+    function show() {
+      let now = new Date();
+      let hour = now.getHours();
+      let minute = now.getUTCMinutes();
+      let seconds = now.getSeconds();
+      let timeValue = hour + '시' + minute + '분' + seconds + '초';
+
+      document.fmt.display.value = timeValue;      
+      timeId = setTimeout("show()", 1000);
+    }
+
+    function startClock() {
+      if(running) return; //running 상태가 true이면 show호출안하고 리턴함
+      show();
+      timeId = setInterval("show()", 1000); //1초마다 계속 호출해줌
+      running = true; 
+    }
+
+    function stopClock() {
+      if(running) {   //러닝 상태라면 clearTimeout을 통해 중지함
+        clearTimeout(timeId);
+        running = false;    //중지 후 러닝상태를 false로 바꿔줘야함.
+      }      
+    }
+  </script>
+</body>
+</html>

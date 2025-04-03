@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>    
+  <script type="text/javascript">
+    //이미지를 랜덤하게 출력
+    //pic1.jpg ~ pic7.jpg 까지 랜덤하게 출력 => 배열안에 있어야함
+    //난수 구하기
+    const n = Math.floor(Math.random() * 7); //0~6;
+    let arr = [
+      "pic1.jpg",
+      "pic2.jpg",
+      "pic3.jpg",
+      "pic4.jpg",
+      "pic5.jpg",
+      "pic6.jpg",
+      "pic7.jpg"
+    ];
+    
+    window.onload = function() {
+      const img = document.getElementById('img');
+      img.src =  '../images/' + arr[n];
+    }    
+  </script>
+</head>
+<body>
+  
+  <img id="img" src="">
+
+</body>
+</html>

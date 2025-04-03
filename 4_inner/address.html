@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>주소 검색 페이지</h1>
+  <ul>
+    <li><a href="#">서울 강남구 대치동</a></li>
+    <li><a href="#">서울 송파구 가닥동</a></li>
+    <li><a href="#">경기 화성시 동탄동</a></li>    
+  </ul>
+
+  <script type="text/javascript">
+    const links = document.getElementsByTagName('a');
+    for(let i=0;i<links.length;i++) {
+      links[i].onclick = function() {
+        window.opener.document.fmt.address.value = this.innerHTML;
+        self.close();
+      }
+    }
+  </script>
+</body>
+</html>

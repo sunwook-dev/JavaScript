@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div{
+		border: 1px solid;
+	}
+	#aa{
+		width: 300px;
+		height: 300px;
+		background: yellow;
+	}
+	
+	#bb{
+		width: 150px;
+		height: 150px;
+		margin-left: 80px;
+		margin-top: 40px;
+		background: green;
+	}
+	
+</style>
+<script type="text/javascript" src="crossEvent.js"></script>
+
+</head>
+<body>
+	<div id="aa">
+		aaaaaaaaaaa
+		<div id="bb">
+			bbbbbbbbb
+		</div>
+		aaaaaaaaaaa
+	</div>
+
+
+	<script type="text/javascript">
+		//aa클릭 => aa
+		//bb클릭 => bb
+
+		//이벤트 핸들러함수
+		function aProcess() {
+			alert("aa");
+		}
+		
+		//event 객체 : event핸들러함수에서 아무 변수를 입력해주면됨
+		function bProcess(event) {
+			alert("bb");
+			//이벤트 버블링 방지
+			event.stopPropagation();
+		}
+		
+		const aa = document.querySelector('#aa');
+		const bb = document.querySelector('#bb');
+
+		aa.addEventListener('click', aProcess, false);
+		bb.addEventListener('click', bProcess, false);
+
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

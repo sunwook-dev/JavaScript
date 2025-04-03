@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form name="fmt">
+    두부 400원
+    <input type="checkbox" value="400">
+    콩나물 150원
+    <input type="checkbox" value="150">
+    간장 1500원
+    <input type="checkbox" value="1500">
+    <br><br>
+    퀵 서비스
+    <input type="radio" name="del" value="5000">
+    택배
+    <input type="radio" name="del" value="2500">
+    <br><br>
+
+    지불하실 금액은 : <input type="text"" name=" result">
+  </form>
+
+  <script type="text/javascript">
+
+    function calc() {
+      //this => 선택한 input
+      //type => checkbox/radio => 식별 => 연산
+      //if(obj.checked == true) => 체크되어있는지 아닌지 확인하는 것
+      const obj = this; //호출한 input
+        alert(obj.value);
+    }
+
+    const inputs = document.getElementsByTagName('input');
+    for (let i = 0; i<inputs.length; i++) {
+      inputs[i].onclick = calc;
+    }
+
+  </script>
+</body>
+
+</html>

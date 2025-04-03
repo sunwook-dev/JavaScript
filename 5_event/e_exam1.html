@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="result"></div>
+  <input type="button" value="버튼1" onclick="doProcess()">&nbsp;&nbsp;&nbsp; 
+  <input type="button" value="버튼2" id="btn">
+
+  <script type="text/javascript">
+    function doProcess() {
+      const result = document.getElementById('result');
+      result.innerHTML = '<span>이벤트결과</span>';
+    }
+
+    function doProcess2() {
+      alert('이벤트결과');
+    }
+
+    //방법1
+    //const btn = document.getElementById('btn');
+
+    //방법2
+    const btn = document.querySelector('#btn');   //querySelector(선택자)
+    
+    //btn 클릭을 할때 doProcess2 함수를 호출하겠다(함수호출을 하면 안됨)
+    
+    //이벤트 핸들러 함수
+    //btn.onclick = doProcess2;
+
+    //이벤트 리스너 방식(여러 개 이벤트 핸들러 등록 가능)
+    btn.addEventListener('click', doProcess2, false);
+    btn.addEventListener('click', doProcess, false);
+    
+
+  </script>
+</body>
+</html>
