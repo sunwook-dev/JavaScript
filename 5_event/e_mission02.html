@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  
 </head>
-
 <body>
   <form name="fmt">
     두부 400원
-    <input type="checkbox" value="400">
+    <input type="checkbox" value="400" >
     콩나물 150원
     <input type="checkbox" value="150">
     간장 1500원
@@ -21,26 +20,45 @@
     택배
     <input type="radio" name="del" value="2500">
     <br><br>
-
-    지불하실 금액은 : <input type="text"" name=" result">
+    
+    지불하실 금액은 : <input type="text"" name="result">
+    
+    
   </form>
 
   <script type="text/javascript">
-
-    function calc() {
+    //total 값을 누적시키기 위해서,  calc안에서 동작하면 함수실행 후 없어짐
+    let total = 0;
+    let pre = 0;
+  
+    function calc(){
       //this => 선택한 input
       //type => checkbox/radio => 식별 => 연산
-      //if(obj.checked == true) => 체크되어있는지 아닌지 확인하는 것
-      const obj = this; //호출한 input
-        alert(obj.value);
+      //if(obj.checked == true)
+      const obj = this;
+      //alert(obj.value);
+      if(obj.type === 'checkbox'){
+        if(obj.checked == true){
+          total +=  parseInt(obj.value);
+        }else{
+          total -=  parseInt(obj.value);
+        }
+      }else{
+        total -= pre;
+        total += parseInt(obj.value);
+        //토탈값을 구한 후 이 값이 이전값이 되야되므로 저장해야함
+        pre = parseInt(obj.value);
+      }
+
+      document.fmt.result.value = total;
     }
 
     const inputs = document.getElementsByTagName('input');
-    for (let i = 0; i<inputs.length; i++) {
+    for(let i=0;i<inputs.length;i++){      
       inputs[i].onclick = calc;
     }
 
   </script>
-</body>
 
+</body>
 </html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+</head>
+<body>
+  <center>
+    <h2>고양이 앨범</h2>
+    <img id="default" src="../images/cat0.jpg" border="1" width="600" height="450">
+    <br/><br/><br/>
+
+    <img src="../images/cat1.jpg" width="70" height="70" border="1" hspace="10"
+         vspace="10" onmouseover="mouseOver(this)" onmouseout="mouseOut()">
+    <img src="../images/cat2.jpg" width="70" height="70" border="1" hspace="10"
+         vspace="10" onmouseover="mouseOver(this)" onmouseout="mouseOut()">
+    <img src="../images/cat3.jpg" width="70" height="70" border="1" hspace="10"
+         vspace="10" onmouseover="mouseOver(this)" onmouseout="mouseOut()">
+
+  </center>
+
+  <script type="text/javascript">
+    function mouseOver(element) {
+      document.getElementById("default").src = element.src;
+    }
+
+    function mouseOut() {
+      document.getElementById("default").src = "../images/cat0.jpg";
+    }        
+  </script>
+</body>
+</html>

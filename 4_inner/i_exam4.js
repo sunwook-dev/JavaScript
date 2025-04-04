@@ -36,8 +36,19 @@ console.log(result);
 //비정상: 33dolsam77@nate.com
 //비정상: dolsam77nate.com
 //비정상: 33dolsam77@nate.comjkj
-const mailCheck = /^[a-zA-Z]+\w*@[a-z]+.com$/;
-console.log(mailCheck.test('dolsam77@nate.com'));
-console.log(mailCheck.test('33dolsam77@nate.com'));
-console.log(mailCheck.test('dolsam77nate.com'));
-console.log(mailCheck.test('33dolsam77@nate.comjkj'));
+
+//const mailCheck = /^[a-zA-Z]+\w*@[a-z]+.com$/;
+// console.log(mailCheck.test('dolsam77@nate.com'));
+// console.log(mailCheck.test('33dolsam77@nate.com'));
+// console.log(mailCheck.test('dolsam77nate.com'));
+// console.log(mailCheck.test('33dolsam77@nate.comjkj'));
+
+const str2 = 'dolsam77@nate.com';
+const re = /^\D\w+@\w+\.\w{2,3}$/ig;
+const result2 = re.test(str2);
+
+if (result2) {
+  console.log('정상');
+} else {
+  console.log('비정상');
+}

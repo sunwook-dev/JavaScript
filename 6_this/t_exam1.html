@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type ="text/javascript">
+    //일반 함수 안에서 this는 window를 가리킴
+    var data = 10;  // 윈도우 객체 10으로 초기화
+    //  let data = 10; //윈도우 객체가 아님
+
+    function func() {
+      this.data = 20; //윈도우객체 10-> 20으로 바꿈
+      data = 30;  //윈도우 객체 10-> 30으로 바꿈
+
+      console.log('1. dta: ' + data); //30
+      console.log('2. this.data:' + this.data);  //30
+      console.log('3. window.data:' + window.data);   //30
+    }
+    func();  //함수 호출
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript">
+    //3. 이벤트 핸들러 함수 안에서 this는 이벤트가 발생한 객체를 가리킴
+    var data = 10;  // 윈도우 객체 10으로 초기화
+
+    window.onload = function() {
+      const btn = document.getElementById("btn1"); //버튼 태그를 가져옴
+      
+      btn.onclick = function() {  
+        this.data = 20; 
+        data = 30;
+
+        console.log('1. dta: ' + data); //30
+        console.log('2. this.data:' + this.data); //20
+        console.log('3. window.data:' + window.data);   //30
+      }
+    }
+  </script>
+</head>
+<body>
+  <input type="button" id="btn1" value="버튼">
+</body>
+</html>
